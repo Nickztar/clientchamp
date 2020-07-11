@@ -18,10 +18,10 @@ export default function Home() {
 				<button
 					className="App-link"
 					onClick={async () => {
-						await fetch(`https://165.22.118.168:8080/random/${channel}`);
+						await fetch(`https://server.weirdchamp.wtf/random/${channel}`);
 					}}
 				>
-					Random {{ channel }}
+					Random {channel}
 				</button>
 			</header>
 		</div>
