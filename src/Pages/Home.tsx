@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../tenor.gif";
 import "../App.css";
 
 export default function Home() {
+	const [channel, setChannel] = useState<string>("621035571057524737");
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -10,13 +11,17 @@ export default function Home() {
 				<p>
 					Edit <code>src/App.tsx</code> and save to reload.
 				</p>
+				<input
+					value={channel}
+					onChange={(val) => setChannel(val.target.value)}
+				/>
 				<button
 					className="App-link"
 					onClick={async () => {
-						await fetch("http://165.22.118.168:8080/random/351313853956620300");
+						await fetch(`https://165.22.118.168:8080/random/${channel}`);
 					}}
 				>
-					Random MarketPlace
+					Random {{ channel }}
 				</button>
 			</header>
 		</div>
