@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const useRequest = (initUrl: string) => {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState({});
 
   useEffect(() => {
