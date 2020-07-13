@@ -1,33 +1,55 @@
-import React, { useState, useEffect } from "react";
-import useRequest from "../Hooks/UseRequest";
+import React from "react";
+import useFetch from "../Hooks/useFetch";
+
 interface Guild {
-  id: number;
-  name: string;
-  members: number[];
-  iconURL: string;
+    id: number;
+    name: string;
+    members: number[];
+    channels: string[];
+    iconURL: string;
 }
 
-export default function Guilds() {
-  const { data, loading, error } = useRequest(
-    `https://www.api.weirdchamp.wtf/api/bot/guilds`
-  );
+export default function Guilds({
+    setChannel,
+}: {
+    setChannel: React.Dispatch<React.SetStateAction<string>>;
+}) {
+    const res = useFetch(`https://api.weirdchamp.wtf/api/bot/guilds`);
+    if (res.error) {
+        return <div>Failed</div>;
+    }
+    if (!res.response) {
+        return <div>Loading...</div>;
+    }
 
-  if (data.length === 0) {
-    return <div>Loading...</div>;
-  }
-  console.log(data);
-  return (
-    <div>
-      <ul className="App-header">
-        {data?.map((guild) => {
-          return (
-            <li key={guild.id}>
-              <p>{guild.name}</p>
-              <img src={guild.iconURL} alt={guild.name + " icon"} />
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+    const Guilds = res.response as Array<Guild>;
+    return (
+        <div>
+            <ul>
+                {Guilds.map((guild) => {
+                    return (
+                        <li key={guild.id}>
+                            <p>{guild.name}</p>
+                            <img
+                                src={guild.iconURL}
+                                alt={guild.name + " icon"}
+                            />
+                            {guild.channels.map((channel) => {
+                                return (
+                                    <p
+                                        onClick={() => {
+                                            return setChannel(channel);
+                                        }}
+                                        className="channel"
+                                    >
+                                        {channel}
+                                    </p>
+                                );
+                            })}
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
+    );
 }
