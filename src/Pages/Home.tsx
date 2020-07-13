@@ -18,7 +18,7 @@ export default function Home() {
 				<button
 					className="App-link"
 					onClick={async () => {
-						await fetch(`https://server.weirdchamp.wtf/api/random/${channel}`);
+						await fetch(`https://www.api.weirdchamp.wtf/api/random/${channel}`);
 					}}
 				>
 					Random {channel}
