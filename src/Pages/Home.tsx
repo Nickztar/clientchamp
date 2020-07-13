@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../tenor.gif";
 import "../App.css";
 
+
 export default function Home() {
 	const [channel, setChannel] = useState<string>("621035571057524737");
 	return (
