@@ -1,6 +1,6 @@
 import React from "react";
+import Channels from "./Channels";
 import useFetch from "../Hooks/useFetch";
-
 interface Guild {
     id: number;
     name: string;
@@ -34,18 +34,10 @@ export default function Guilds({
                                 src={guild.iconURL}
                                 alt={guild.name + " icon"}
                             />
-                            {guild.channels.map((channel) => {
-                                return (
-                                    <p
-                                        onClick={() => {
-                                            return setChannel(channel);
-                                        }}
-                                        className="channel"
-                                    >
-                                        {channel}
-                                    </p>
-                                );
-                            })}
+                            <Channels
+                                setChannel={setChannel}
+                                snowflake={guild.id}
+                            />
                         </li>
                     );
                 })}
