@@ -1,15 +1,6 @@
 import React from "react";
 import useFetch from "../Hooks/useFetch";
-
-interface Channel {
-    type: string;
-    deleted: boolean;
-    id: number;
-    name: string;
-    rawPosition: number;
-    parentId: string;
-    createdTimestamp: number;
-}
+import { Channel } from "../Interfaces/types";
 
 export default function Channels({
     setChannel,

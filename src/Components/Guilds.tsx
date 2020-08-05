@@ -1,13 +1,7 @@
 import React from "react";
 import Channels from "./Channels";
 import useFetch from "../Hooks/useFetch";
-interface Guild {
-    id: number;
-    name: string;
-    members: number[];
-    channels: string[];
-    iconURL: string;
-}
+import { Guild } from "../Interfaces/types";
 
 export default function Guilds({
     setChannel,
