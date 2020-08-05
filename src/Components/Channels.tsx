@@ -45,7 +45,10 @@ export default function Channels({
                     );
                 } else {
                     return (
-                        <p className="channel" style={{ color: "grey" }}>
+                        <p
+                            className="channel"
+                            style={{ color: "grey", cursor: "default" }}
+                        >
                             {channel.name}
                         </p>
                     );
