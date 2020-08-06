@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
-import { Channel } from "../ts/interfaces";
-import { ChannelType } from "../ts/enums";
 import { channelContext } from "../pages/Home";
+import { Channel } from "../utils/interfaces";
+import { ChannelType } from "../utils/enums";
 
 export default function Channels({ snowflake }: { snowflake: number }) {
     const state = useContext(channelContext);

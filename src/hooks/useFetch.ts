@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url: string, options?: any) => {
+const useFetch = (url: string, options?: RequestInit) => {
     const [response, setResponse] = useState<any>(null);
     const [error, setError] = useState<any>(null);
     useEffect(() => {
@@ -17,4 +17,5 @@ const useFetch = (url: string, options?: any) => {
     }, [url, options]);
     return { response, error };
 };
+
 export default useFetch;
