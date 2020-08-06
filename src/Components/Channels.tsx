@@ -1,6 +1,7 @@
 import React from "react";
 import useFetch from "../Hooks/useFetch";
-import { Channel } from "../Interfaces/types";
+import { Channel } from "../TS/interfaces";
+import { ChannelType } from "../TS/enums";
 
 export default function Channels({
     setChannel,
@@ -23,7 +24,7 @@ export default function Channels({
     return (
         <div>
             {Channels.map((channel) => {
-                if (channel.type === "voice") {
+                if (channel.type === ChannelType.Voice) {
                     return (
                         <p
                             onClick={() => {

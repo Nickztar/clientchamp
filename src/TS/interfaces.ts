@@ -1,5 +1,7 @@
+import { ChannelType } from "./enums";
+
 export interface Channel {
-    type: string;
+    type: ChannelType;
     deleted: boolean;
     id: number;
     name: string;

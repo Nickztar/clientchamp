@@ -1,7 +1,7 @@
 import React from "react";
 import Channels from "./Channels";
 import useFetch from "../Hooks/useFetch";
-import { Guild } from "../Interfaces/types";
+import { Guild } from "../TS/interfaces";
 
 export default function Guilds({
     setChannel,
