@@ -1,15 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import useFetch from "../Hooks/useFetch";
 import { Channel } from "../TS/interfaces";
 import { ChannelType } from "../TS/enums";
+import { channelContext } from "../Pages/Home";
 
-export default function Channels({
-    changeChannel,
-    snowflake,
-}: {
-    changeChannel: (channel: string) => void;
-    snowflake: number;
-}) {
+export default function Channels({ snowflake }: { snowflake: number }) {
+    const state = useContext(channelContext);
     const res = useFetch(
         "https://api.weirdchamp.wtf/api/bot/channels/" + snowflake
     );
@@ -28,7 +24,9 @@ export default function Channels({
                     return (
                         <p
                             onClick={() => {
-                                return changeChannel(channel.id.toString());
+                                return state.changeChannel(
+                                    channel.id.toString()
+                                );
                             }}
                             className="channel"
                         >
