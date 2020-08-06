@@ -1,7 +1,6 @@
-import * as firebase from "firebase";
-import "firebase/auth";
-import "firebase/firestore";
-
+// import * as firebase from "firebase";
+// import "firebase/auth";
+// import "firebase/firestore";
 interface FirebaseConfig {
     apiKey: string;
     authDomain: string;
@@ -12,8 +11,7 @@ interface FirebaseConfig {
     appId: string;
     measurementId: string;
 }
-
-const config: FirebaseConfig = {
+export const config: FirebaseConfig = {
     apiKey: "",
     authDomain: "",
     databaseURL: "",
@@ -24,6 +22,11 @@ const config: FirebaseConfig = {
     measurementId: "",
 };
 
-firebase.initializeApp(config);
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+// firebase.initializeApp(config);
+// export const auth = firebase.auth();
+// export const firestore = firebase.firestore();
+/*
+
+//Take a descision on if we should use firebase. Not to sure atm....
+
+*/
