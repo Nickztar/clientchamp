@@ -4,10 +4,10 @@ import { Channel } from "../TS/interfaces";
 import { ChannelType } from "../TS/enums";
 
 export default function Channels({
-    setChannel,
+    changeChannel,
     snowflake,
 }: {
-    setChannel: React.Dispatch<React.SetStateAction<string>>;
+    changeChannel: (channel: string) => void;
     snowflake: number;
 }) {
     const res = useFetch(
@@ -28,7 +28,7 @@ export default function Channels({
                     return (
                         <p
                             onClick={() => {
-                                return setChannel(channel.id.toString());
+                                return changeChannel(channel.id.toString());
                             }}
                             className="channel"
                         >

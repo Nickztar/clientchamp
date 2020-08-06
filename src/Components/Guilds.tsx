@@ -2,12 +2,9 @@ import React from "react";
 import Channels from "./Channels";
 import useFetch from "../Hooks/useFetch";
 import { Guild } from "../TS/interfaces";
+import { channelContext } from "../Pages/Home";
 
-export default function Guilds({
-    setChannel,
-}: {
-    setChannel: React.Dispatch<React.SetStateAction<string>>;
-}) {
+export default function Guilds() {
     const res = useFetch(`https://api.weirdchamp.wtf/api/bot/guilds`);
     if (res.error) {
         return <div>Failed</div>;
@@ -28,10 +25,14 @@ export default function Guilds({
                                 src={guild.iconURL}
                                 alt={guild.name + " icon"}
                             />
-                            <Channels
-                                setChannel={setChannel}
-                                snowflake={guild.id}
-                            />
+                            <channelContext.Consumer>
+                                {(context) => (
+                                    <Channels
+                                        changeChannel={context.changeChannel}
+                                        snowflake={guild.id}
+                                    />
+                                )}
+                            </channelContext.Consumer>
                         </li>
                     );
                 })}
