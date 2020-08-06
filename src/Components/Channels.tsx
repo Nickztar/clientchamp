@@ -23,6 +23,7 @@ export default function Channels({ snowflake }: { snowflake: number }) {
                 if (channel.type === ChannelType.Voice) {
                     return (
                         <p
+                            key={channel.id}
                             onClick={() => {
                                 return state.changeChannel(
                                     channel.id.toString()
@@ -36,6 +37,7 @@ export default function Channels({ snowflake }: { snowflake: number }) {
                 } else {
                     return (
                         <p
+                            key={channel.id}
                             className="channel"
                             style={{ color: "grey", cursor: "default" }}
                         >
