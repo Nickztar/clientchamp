@@ -1,7 +1,7 @@
 import React, { useState, createContext } from "react";
 import logo from "../tenor.gif";
 import "../App.css";
-import Guilds from "../Components/Guilds";
+import Guilds from "./src/components/Guilds";
 
 export const channelContext = createContext({
     channel: "",

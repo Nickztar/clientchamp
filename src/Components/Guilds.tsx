@@ -1,7 +1,7 @@
 import React from "react";
 import Channels from "./Channels";
-import useFetch from "../Hooks/useFetch";
-import { Guild } from "../TS/interfaces";
+import useFetch from "../hooks/useFetch";
+import { Guild } from "../ts/interfaces";
 
 export default function Guilds() {
     const res = useFetch(`https://api.weirdchamp.wtf/api/bot/guilds`);

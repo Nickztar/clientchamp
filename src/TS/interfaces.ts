@@ -9,6 +9,7 @@ export interface Channel {
     parentId: string;
     createdTimestamp: number;
 }
+
 export interface Guild {
     id: number;
     name: string;
