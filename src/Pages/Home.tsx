@@ -4,7 +4,7 @@ import "../App.css";
 import Guilds from "../Components/Guilds";
 
 export default function Home() {
-    const [channel, setChannel] = useState<string>("621035571057524737");
+    const [channel, setChannel] = useState<string>("621035571057524737"); //This should be global state, mobx vs redux?
     return (
         <div className="home-layout">
             <div className="App">
