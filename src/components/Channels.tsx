@@ -5,18 +5,22 @@ import { Channel } from "../utils/interfaces";
 import { ChannelType } from "../utils/enums";
 
 export default function Channels({ snowflake }: { snowflake: number }) {
-    const state = useContext(channelContext);
+    const { changeChannel } = useContext(channelContext);
+
     const res = useFetch(
         "https://api.weirdchamp.wtf/api/bot/channels/" + snowflake
     );
+
     if (res.error) {
         return <div>Failed</div>;
     }
+
     if (!res.response) {
         return <div>Loading...</div>;
     }
 
     const Channels = res.response as Array<Channel>;
+
     return (
         <div>
             {Channels.map((channel) => {
@@ -25,9 +29,7 @@ export default function Channels({ snowflake }: { snowflake: number }) {
                         <p
                             key={channel.id}
                             onClick={() => {
-                                return state.changeChannel(
-                                    channel.id.toString()
-                                );
+                                return changeChannel(channel.id.toString());
                             }}
                             className="channel"
                         >

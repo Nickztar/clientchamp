@@ -13,40 +13,38 @@ export default function Home() {
     const [channel, setChannel] = useState<string>("621035571057524737"); //This should be global state, mobx vs redux?
 
     const initialContext = {
-        channel: "621035571057524737",
+        channel: channel,
         changeChannel: (channel: string) => {
             setChannel(channel);
         },
     };
 
     return (
-        <div className="home-layout">
-            <channelContext.Provider value={initialContext}>
+        <channelContext.Provider value={initialContext}>
+            <div className="home-layout">
                 <Files />
-            </channelContext.Provider>
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>Play a random sound at this channel:</p>
-                    <input
-                        value={channel}
-                        onChange={(val) => setChannel(val.target.value)}
-                    />
-                    <button
-                        className="App-link"
-                        onClick={async () => {
-                            await fetch(
-                                `https://www.api.weirdchamp.wtf/api/bot/random/${channel}`
-                            );
-                        }}
-                    >
-                        Random {channel}
-                    </button>
-                </header>
-            </div>
-            <channelContext.Provider value={initialContext}>
+                <div className="App">
+                    <header className="App-header">
+                        <img src={logo} className="App-logo" alt="logo" />
+                        <p>Play a random sound at this channel:</p>
+                        <input
+                            value={channel}
+                            onChange={(val) => setChannel(val.target.value)}
+                        />
+                        <button
+                            className="App-link"
+                            onClick={async () => {
+                                await fetch(
+                                    `https://www.api.weirdchamp.wtf/api/bot/random/${channel}`
+                                );
+                            }}
+                        >
+                            Random {channel}
+                        </button>
+                    </header>
+                </div>
                 <Guilds />
-            </channelContext.Provider>
-        </div>
+            </div>
+        </channelContext.Provider>
     );
 }

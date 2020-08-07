@@ -5,6 +5,7 @@ import { Guild } from "../utils/interfaces";
 
 export default function Guilds() {
     const res = useFetch(`https://api.weirdchamp.wtf/api/bot/guilds`);
+
     if (res.error) {
         return <div>Failed</div>;
     }
@@ -13,6 +14,7 @@ export default function Guilds() {
     }
 
     const Guilds = res.response as Array<Guild>;
+
     return (
         <div>
             <ul>
