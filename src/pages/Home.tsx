@@ -12,7 +12,7 @@ export const channelContext = createContext({
 export default function Home() {
     const [channel, setChannel] = useState<string>("621035571057524737"); //This should be global state, mobx vs redux?
 
-    const initialContext = {
+    const state = {
         channel: channel,
         changeChannel: (channel: string) => {
             setChannel(channel);
@@ -20,7 +20,7 @@ export default function Home() {
     };
 
     return (
-        <channelContext.Provider value={initialContext}>
+        <channelContext.Provider value={state}>
             <div className="home-layout">
                 <Files />
                 <div className="App">
