@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import logo from "../tenor.gif";
 import "../App.css";
 import Guilds from "../components/Guilds";
