@@ -3,11 +3,7 @@ import logo from "../tenor.gif";
 import "../App.css";
 import Guilds from "../components/Guilds";
 import Files from "../components/Files";
-
-export const channelContext = createContext({
-    channel: "",
-    changeChannel: (channel: string) => {},
-});
+import { channelContext } from "../utils/context";
 
 export default function Home() {
     const [channel, setChannel] = useState<string>("621035571057524737"); //This should be global state, mobx vs redux?
