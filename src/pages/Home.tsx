@@ -2,6 +2,7 @@ import React, { useState, createContext } from "react";
 import logo from "../tenor.gif";
 import "../App.css";
 import Guilds from "../components/Guilds";
+import Files from "../components/Files";
 
 export const channelContext = createContext({
     channel: "",
@@ -20,6 +21,9 @@ export default function Home() {
 
     return (
         <div className="home-layout">
+            <channelContext.Provider value={initialContext}>
+                <Files />
+            </channelContext.Provider>
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
@@ -32,7 +36,7 @@ export default function Home() {
                         className="App-link"
                         onClick={async () => {
                             await fetch(
-                                `https://www.api.weirdchamp.wtf/api/random/${channel}`
+                                `https://www.api.weirdchamp.wtf/api/bot/random/${channel}`
                             );
                         }}
                     >

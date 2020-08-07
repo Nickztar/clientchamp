@@ -1,5 +1,13 @@
 import { ChannelType } from "./enums";
 
+export interface Guild {
+    id: number;
+    name: string;
+    members: number[];
+    channels: string[];
+    iconURL: string;
+}
+
 export interface Channel {
     type: ChannelType;
     deleted: boolean;
@@ -8,12 +16,4 @@ export interface Channel {
     rawPosition: number;
     parentId: string;
     createdTimestamp: number;
-}
-
-export interface Guild {
-    id: number;
-    name: string;
-    members: number[];
-    channels: string[];
-    iconURL: string;
 }
