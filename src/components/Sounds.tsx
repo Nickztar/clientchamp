@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { channelContext } from "../utils/context";
-import { Routes } from "../utils/enums";
+import { RoutesConsts } from "../utils/enums";
 import Styled from "styled-components";
 
 //Extract styled components to its own file.
@@ -13,7 +13,7 @@ const StyledUl = Styled.ul`
 export default function Sounds() {
     const { channel } = useContext(channelContext);
 
-    const res = useFetch(Routes.Files);
+    const res = useFetch(RoutesConsts.Files);
 
     if (res.error) {
         return <div>Failed</div>;

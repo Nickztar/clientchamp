@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { Channel } from "../utils/interfaces";
-import { ChannelType, Routes } from "../utils/enums";
+import { ChannelType, RoutesConsts } from "../utils/enums";
 import { channelContext } from "../utils/context";
 
 export default function Channels({ snowflake }: { snowflake: number }) {
     const { changeChannel } = useContext(channelContext);
 
-    const res = useFetch(Routes.Channels + snowflake);
+    const res = useFetch(RoutesConsts.Channels + snowflake);
 
     if (res.error) {
         return <div>Failed</div>;

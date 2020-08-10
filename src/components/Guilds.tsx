@@ -2,10 +2,10 @@ import React from "react";
 import Channels from "./Channels";
 import useFetch from "../hooks/useFetch";
 import { Guild } from "../utils/interfaces";
-import { Routes } from "../utils/enums";
+import { RoutesConsts } from "../utils/enums";
 
 export default function Guilds() {
-    const res = useFetch(Routes.Guilds);
+    const res = useFetch(RoutesConsts.Guilds);
 
     if (res.error) {
         return <div>Failed</div>;
