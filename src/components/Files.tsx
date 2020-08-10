@@ -2,6 +2,13 @@ import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { channelContext } from "../utils/context";
 import { Routes } from "../utils/enums";
+import Styled from "styled-components";
+
+//Extract styled components to its own file.
+const StyledUl = Styled.ul`
+    display: flex;
+    flex-direction: column;
+`;
 
 export default function Files() {
     const { channel } = useContext(channelContext);
@@ -20,7 +27,7 @@ export default function Files() {
 
     return (
         <div>
-            <ul style={{ display: "flex", flexDirection: "column" }}>
+            <StyledUl>
                 {Files.map((file) => {
                     return (
                         <button
@@ -35,7 +42,7 @@ export default function Files() {
                         </button>
                     );
                 })}
-            </ul>
+            </StyledUl>
         </div>
     );
 }
