@@ -2,7 +2,7 @@ import React from "react";
 import Channels from "./Channels";
 import useFetch from "../hooks/useFetch";
 import { Guild } from "../utils/interfaces";
-import { Routes } from "../utils/consts";
+import { Routes } from "../utils/enums";
 
 export default function Guilds() {
     const res = useFetch(Routes.Guilds);

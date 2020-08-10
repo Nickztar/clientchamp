@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { channelContext } from "../utils/context";
-import { Routes } from "../utils/consts";
+import { Routes } from "../utils/enums";
 
 export default function Files() {
     const { channel } = useContext(channelContext);
