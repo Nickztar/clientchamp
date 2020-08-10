@@ -3,13 +3,12 @@ import useFetch from "../hooks/useFetch";
 import { Channel } from "../utils/interfaces";
 import { ChannelType } from "../utils/enums";
 import { channelContext } from "../utils/context";
+import { Routes } from "../utils/consts";
 
 export default function Channels({ snowflake }: { snowflake: number }) {
     const { changeChannel } = useContext(channelContext);
 
-    const res = useFetch(
-        "https://api.weirdchamp.wtf/api/bot/channels/" + snowflake
-    );
+    const res = useFetch(Routes.Channels + snowflake);
 
     if (res.error) {
         return <div>Failed</div>;

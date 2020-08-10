@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { channelContext } from "../utils/context";
+import { Routes } from "../utils/consts";
 
 export default function Files() {
     const { channel } = useContext(channelContext);
 
-    const res = useFetch("https://api.weirdchamp.wtf/api/bot/files/");
+    const res = useFetch(Routes.Files);
 
     if (res.error) {
         return <div>Failed</div>;

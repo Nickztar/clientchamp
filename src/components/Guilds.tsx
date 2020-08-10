@@ -2,9 +2,10 @@ import React from "react";
 import Channels from "./Channels";
 import useFetch from "../hooks/useFetch";
 import { Guild } from "../utils/interfaces";
+import { Routes } from "../utils/consts";
 
 export default function Guilds() {
-    const res = useFetch(`https://api.weirdchamp.wtf/api/bot/guilds`);
+    const res = useFetch(Routes.Guilds);
 
     if (res.error) {
         return <div>Failed</div>;
