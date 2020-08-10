@@ -10,7 +10,7 @@ const StyledUl = Styled.ul`
     flex-direction: column;
 `;
 
-export default function Files() {
+export default function Sounds() {
     const { channel } = useContext(channelContext);
 
     const res = useFetch(Routes.Files);

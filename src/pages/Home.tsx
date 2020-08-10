@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../assets/tenor.gif";
 import "../styles/App.css";
 import Guilds from "../components/Guilds";
-import Files from "../components/Files";
+import Sounds from "../components/Sounds";
 import { channelContext } from "../utils/context";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
     return (
         <channelContext.Provider value={state}>
             <div className="home-layout">
-                <Files />
+                <Guilds />
                 <div className="App">
                     <header className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
@@ -39,7 +39,7 @@ export default function Home() {
                         </button>
                     </header>
                 </div>
-                <Guilds />
+                <Sounds />
             </div>
         </channelContext.Provider>
     );
