@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logo from "../tenor.gif";
-import "../App.css";
+import logo from "../assets/tenor.gif";
+import "../styles/App.css";
 import Guilds from "../components/Guilds";
 import Files from "../components/Files";
 import { channelContext } from "../utils/context";
