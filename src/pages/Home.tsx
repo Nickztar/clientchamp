@@ -29,6 +29,7 @@ export default function Home() {
                         />
                         <button
                             className="App-link"
+                            style={{ cursor: "pointer" }}
                             onClick={async () => {
                                 await fetch(
                                     `https://www.api.weirdchamp.wtf/api/bot/random/${channel}`
@@ -36,6 +37,17 @@ export default function Home() {
                             }}
                         >
                             Random {channel}
+                        </button>
+                        <button
+                            className="App-link"
+                            style={{ cursor: "pointer" }}
+                            onClick={async () => {
+                                await fetch(
+                                    `https://www.api.weirdchamp.wtf/api/bot/fetchSounds`
+                                );
+                            }}
+                        >
+                            Fetch
                         </button>
                     </header>
                 </div>
